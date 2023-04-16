@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Rating = ({ value, text, color }) => {
   return (
@@ -71,8 +72,16 @@ const Rating = ({ value, text, color }) => {
   );
 };
 
+// * set default value for prop whether or not its value is passed
+
 Rating.defaultProps = {
   color: "#ffff9f",
+};
+
+Rating.propTypes = {
+  value: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default Rating;
