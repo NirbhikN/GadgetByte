@@ -1,0 +1,15 @@
+{
+  "name": "final-year-project",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "keywords": [],
+  "author": "Nirbhik Nyoupane",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
