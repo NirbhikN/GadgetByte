@@ -6,6 +6,8 @@ import axios from "axios";
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
 
+  // * Fetching from backend
+
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get("/api/products");

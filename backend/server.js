@@ -1,5 +1,8 @@
-const express = require("express");
-const products = require("./data/products");
+import express from "express";
+import products from "./data/products.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -17,6 +20,8 @@ app.get("/api/products/:id", (req, res) => {
   res.json(product);
 });
 
-app.listen(8080, () => {
-  console.log("Server started at port 8080");
+const PORT = process.env.PORT || 8080; //* Checks if there is any "PORT" present in env variables else uses 8080 as port
+
+app.listen(PORT, () => {
+  console.log(`Server started in ${process.env.NODE_ENV} at port ${PORT}`);
 });
