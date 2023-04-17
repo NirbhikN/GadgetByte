@@ -1,8 +1,12 @@
 import express from "express";
 import products from "./data/products.js";
 import dotenv from "dotenv";
+import colors from "colors";
+import connectDB from "./config/db.js";
 
 dotenv.config();
+
+connectDB();
 
 const app = express();
 
@@ -23,5 +27,7 @@ app.get("/api/products/:id", (req, res) => {
 const PORT = process.env.PORT || 8080; //* Checks if there is any "PORT" present in env variables else uses 8080 as port
 
 app.listen(PORT, () => {
-  console.log(`Server started in ${process.env.NODE_ENV} at port ${PORT}`);
+  console.log(
+    `Server started in ${process.env.NODE_ENV} at port ${PORT}`.yellow.bold
+  );
 });
