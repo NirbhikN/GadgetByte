@@ -75,7 +75,7 @@ const Rating = ({ value, text, color }) => {
 // * set default value for prop whether or not its value is passed
 
 Rating.defaultProps = {
-  color: "#ffff9f",
+  color: "black",
 };
 
 Rating.propTypes = {
