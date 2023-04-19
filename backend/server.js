@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
 import connectDB from "./config/db.js";
+import { notFound, errorHander } from "./middleware/errorMiddleware.js";
 
 import productRoutes from "./routes/productRoutes.js";
 
@@ -17,6 +18,10 @@ app.get("/", (req, res) => {
 
 //* Any route that goes to '/api/products', it goes to productRoutes
 app.use("/api/products", productRoutes);
+
+//* Error Handlers
+app.use(notFound);
+app.use(errorHander);
 
 const PORT = process.env.PORT || 8080; //* Checks if there is any "PORT" present in env variables else uses 8080 as port
 
