@@ -20,7 +20,7 @@ const ProductScreen = () => {
 
   const navigate = useNavigate(); //* To navigate to product page
 
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   // * Redux
   const dispatch = useDispatch();
@@ -98,8 +98,7 @@ const ProductScreen = () => {
                     <Row>
                       <Col>Qty</Col>
                       <Col>
-                        <Form.Control
-                          as="select"
+                        <Form.Select
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
                         >
@@ -108,7 +107,7 @@ const ProductScreen = () => {
                               {x + 1}
                             </option>
                           ))}
-                        </Form.Control>
+                        </Form.Select>
                       </Col>
                     </Row>
                   </ListGroup.Item>
