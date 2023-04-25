@@ -7,6 +7,7 @@ import "./index.css";
 import HomeScreen from "./screens/HomeScreen"; //* All Products
 import ProductScreen from "./screens/ProductScreen"; //* Single Product
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 const App = () => {
   return (
@@ -15,9 +16,10 @@ const App = () => {
       <main className="py-3">
         <Container>
           <Routes>
-            <Route path="/" exact element={<HomeScreen />}></Route>
+            <Route path="/login" element={<LoginScreen />}></Route>
             <Route path="/product/:id" element={<ProductScreen />}></Route>
             <Route path="/cart/:id?" element={<CartScreen />}></Route>
+            <Route path="/" exact element={<HomeScreen />}></Route>
           </Routes>
         </Container>
       </main>
