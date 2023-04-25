@@ -9,7 +9,7 @@ import {
 } from "./reducers/productReducers";
 
 import { cartReducer } from "./reducers/cartReducers";
-import { userLoginReducer } from "./reducers/userReducers";
+import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
 
 //! Its key value is shown in redux devtool like productList, productDetails etc
 const reducer = combineReducers({
@@ -17,6 +17,7 @@ const reducer = combineReducers({
   productDetails: productDetailsReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
 });
 
 //* data in localstorage is added in 'actions' then added to initial here.

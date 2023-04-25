@@ -30,6 +30,8 @@ const Header = () => {
                   <i className="fas fa-cart-shopping"></i> Cart
                 </Nav.Link>
               </LinkContainer>
+
+              {/* //* Checked if user logged in or not */}
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
