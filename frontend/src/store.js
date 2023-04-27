@@ -16,6 +16,8 @@ import {
   userUpdateProfileReducer,
 } from "./reducers/userReducers";
 
+import { orderCreateReducer } from "./reducers/orderReducers";
+
 //! Its key value is shown in redux devtool like productList, productDetails etc
 const reducer = combineReducers({
   productList: productListReducer,
@@ -25,6 +27,7 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
+  orderCreate: orderCreateReducer,
 });
 
 //* data in localstorage is added in 'actions' then added to initial here.
@@ -41,16 +44,16 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
   ? JSON.parse(localStorage.getItem("shippingAddress"))
   : {};
 
-const paymentMethodFromStorage = localStorage.getItem("paymentMethod")
-  ? JSON.parse(localStorage.getItem("paymentMethod"))
-  : {};
+//* Add this only if you want multiple payment options and want to add it to storage
+// const paymentMethodFromStorage = localStorage.getItem("paymentMethod")
+//   ? JSON.parse(localStorage.getItem("paymentMethod"))
+//   : {};
 
 //* What should be in initital in localstorage
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage,
     shippingAddress: shippingAddressFromStorage,
-    paymentMethod: paymentMethodFromStorage,
   },
   userLogin: { userInfo: userInfoFromStorage },
 };
