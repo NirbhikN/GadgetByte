@@ -112,6 +112,7 @@ const CartScreen = () => {
                 className="btn-block"
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
+                style={{ width: "100%" }}
               >
                 Proceed to Checkout
               </Button>
