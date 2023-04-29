@@ -19,6 +19,7 @@ import {
 import {
   orderCreateReducer,
   orderDetailsReducer,
+  orderPayReducer,
 } from "./reducers/orderReducers";
 
 //! Its key value is shown in redux devtool like productList, productDetails etc
@@ -32,6 +33,7 @@ const reducer = combineReducers({
   userUpdateProfile: userUpdateProfileReducer,
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer,
 });
 
 //* data in localstorage is added in 'actions' then added to initial here.
