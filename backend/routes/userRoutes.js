@@ -5,10 +5,11 @@ import {
   getUserProfile,
   registerUser,
   updateUserProfile,
+  getUsers,
 } from "../controllers/userController.js";
-import { protect } from "../middleware/authMiddleware.js"; //*protect middleware only when we want to protect it i.e for sensitive files
+import { protect, admin } from "../middleware/authMiddleware.js"; //*protect middleware only when we want to protect it i.e for sensitive files
 
-router.route("/").post(registerUser);
+router.route("/").post(registerUser).get(protect, admin, getUsers);
 router.post("/login", authUser);
 router
   .route("/profile")
