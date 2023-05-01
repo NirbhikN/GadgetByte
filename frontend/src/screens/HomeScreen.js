@@ -6,10 +6,10 @@ import Product from "../components/Product"; //* Product Component
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
-
 import { listProducts } from "../actions/productActions";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
+import Meta from "../components/Meta";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -26,6 +26,9 @@ const HomeScreen = () => {
 
   return (
     <>
+      {/* //* For titles */}
+      <Meta />
+
       {/* //* Show carousel only if nothing is searched */}
       {!keyword ? (
         <ProductCarousel />
