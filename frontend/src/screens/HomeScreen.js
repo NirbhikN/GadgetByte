@@ -4,18 +4,20 @@ import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product"; //* Product Component
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import { useParams } from "react-router-dom";
 
 import { listProducts } from "../actions/productActions";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
+  const { keyword } = useParams();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
 
   return (
     <>
