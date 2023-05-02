@@ -12,7 +12,7 @@ import connectDB from "./config/db.js";
 
 dotenv.config();
 
-await connectDB();
+connectDB();
 
 const importData = async () => {
   try {
@@ -26,14 +26,16 @@ const importData = async () => {
     const adminUser = createdUsers[0]._id;
 
     const sampleProducts = products.map((product) => {
-      return { ...product, user: adminUser }; //! add a property user to the product
+      return { ...product, user: adminUser };
     });
 
     await Product.insertMany(sampleProducts);
 
-    console.log("Data imported!".green.inverse);
+    console.log("Data Imported!".green.inverse);
+    process.exit();
   } catch (error) {
-    console.log(`${error}`.red.inverse);
+    console.error(`${error}`.red.inverse);
+    process.exit(1);
   }
 };
 
@@ -43,9 +45,11 @@ const destroyData = async () => {
     await Product.deleteMany();
     await User.deleteMany();
 
-    console.log("Data destroyed!".red.inverse);
+    console.log("Data Destroyed!".red.inverse);
+    process.exit();
   } catch (error) {
-    console.log(`${error}`.red.inverse);
+    console.error(`${error}`.red.inverse);
+    process.exit(1);
   }
 };
 

@@ -47,11 +47,11 @@ const ProductEditScreen = () => {
         setImage(product.image);
         setBrand(product.brand);
         setCategory(product.category);
-        setCountInStock(product.countInSock);
+        setCountInStock(product.countInStock);
         setDescription(product.description);
       }
     }
-  }, [dispatch, productId, product, successUpdate, navigate]);
+  }, [dispatch, navigate, productId, product, successUpdate]);
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]; //* [0] because we are uploading only a single file
@@ -135,7 +135,6 @@ const ProductEditScreen = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-
               <Form.File
                 id="image-file"
                 label="Choose File"

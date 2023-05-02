@@ -43,7 +43,6 @@ const LoginScreen = () => {
             type="email"
             placeholder="Enter email"
             value={email}
-            required
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -54,22 +53,21 @@ const LoginScreen = () => {
             type="password"
             placeholder="Enter password"
             value={password}
-            required
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
-        <Button className="my-3" type="submit" variant="primary">
+        <Button type="submit" variant="primary">
           Sign In
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
-          New Customer?
+          New Customer?{" "}
           <Link
-            className="mx-2"
             to={redirect ? `/register?redirect=${redirect}` : "/register"}
+            className="mx-2"
           >
             Register
           </Link>
