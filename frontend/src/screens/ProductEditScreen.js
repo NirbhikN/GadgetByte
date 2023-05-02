@@ -47,11 +47,11 @@ const ProductEditScreen = () => {
         setImage(product.image);
         setBrand(product.brand);
         setCategory(product.category);
-        setCountInStock(product.countInStock);
+        setCountInStock(product.countInSock);
         setDescription(product.description);
       }
     }
-  }, [dispatch, navigate, productId, product, successUpdate]);
+  }, [dispatch, productId, product, successUpdate, navigate]);
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]; //* [0] because we are uploading only a single file
@@ -135,12 +135,15 @@ const ProductEditScreen = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              <Form.File
-                id="image-file"
-                label="Choose File"
-                custom
-                onChange={uploadFileHandler}
-              ></Form.File>
+
+              <Form.Group controlId="formFile" className="mb-3">
+                <Form.Label>Choose File</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={uploadFileHandler}
+                ></Form.Control>
+              </Form.Group>
+
               {uploading && <Loader />}
             </Form.Group>
 
