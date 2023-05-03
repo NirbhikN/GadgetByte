@@ -91,6 +91,9 @@ const CartScreen = () => {
             ))}
           </ListGroup>
         )}
+        <Link to="/" className="btn btn-dark my-3 rounded">
+          Back to Home
+        </Link>
       </Col>
       <Col md={4}>
         <Card>

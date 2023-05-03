@@ -17,7 +17,10 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
       <Nav.Item>
         {step2 ? (
           <LinkContainer to="/shipping">
-            <Nav.Link>Shipping</Nav.Link>
+            <Nav.Link>
+              <span style={{ marginRight: "30px" }}>&#10230;</span>
+              Shipping
+            </Nav.Link>
           </LinkContainer>
         ) : (
           <Nav.Link disabled> Shipping</Nav.Link>
@@ -26,7 +29,10 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
       <Nav.Item>
         {step3 ? (
           <LinkContainer to="/payment">
-            <Nav.Link>Payment</Nav.Link>
+            <Nav.Link>
+              <span style={{ marginRight: "30px" }}>&#10230;</span>
+              Payment
+            </Nav.Link>
           </LinkContainer>
         ) : (
           <Nav.Link disabled> Payment</Nav.Link>
@@ -35,7 +41,10 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
       <Nav.Item>
         {step4 ? (
           <LinkContainer to="/placeorder">
-            <Nav.Link>Place Order</Nav.Link>
+            <Nav.Link>
+              <span style={{ marginRight: "30px" }}>&#10230;</span>
+              Place Order
+            </Nav.Link>
           </LinkContainer>
         ) : (
           <Nav.Link disabled> Place Order</Nav.Link>

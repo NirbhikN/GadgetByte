@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import FormContainer from "../components/FormContainer";
 import { login } from "../actions/userActions";
 
 const LoginScreen = () => {
@@ -32,48 +30,53 @@ const LoginScreen = () => {
   };
 
   return (
-    <FormContainer>
-      <h1>Sign In</h1>
+    <center className="whole-content">
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId="email">
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
 
-        <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Button type="submit" variant="primary">
-          Sign In
-        </Button>
-      </Form>
-
-      <Row className="py-3">
-        <Col>
-          New Customer?{" "}
-          <Link
-            to={redirect ? `/register?redirect=${redirect}` : "/register"}
-            className="mx-2"
-          >
-            Register
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+      <div className="Auth-form-container">
+        <form className="Auth-form">
+          <div className="login-Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="form-group mt-3">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="Enter email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="d-grid gap-2 mt-3">
+              <button
+                type="submit"
+                className="btn btn-primary rounded"
+                onClick={submitHandler}
+              >
+                Sign In
+              </button>
+            </div>
+            <div className="gotologin">
+              New Customer?{" "}
+              <Link
+                to={redirect ? `/register?redirect=${redirect}` : "/register"}
+              >
+                Register
+              </Link>
+            </div>
+          </div>
+        </form>
+      </div>
+    </center>
   );
 };
 

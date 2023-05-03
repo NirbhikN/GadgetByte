@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import FormContainer from "../components/FormContainer";
 import { register } from "../actions/userActions";
 
 const RegisterScreen = () => {
@@ -41,71 +39,70 @@ const RegisterScreen = () => {
   };
 
   return (
-    <FormContainer>
-      <h1>Sign Up</h1>
+    <center className="whole-content">
       {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
 
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="name"
-            placeholder="Enter name"
-            value={name}
-            required
-            onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId="email">
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId="confirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            required
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Button className="my-2" type="submit" variant="primary">
-          Register
-        </Button>
-      </Form>
-
-      <Row className="py-3">
-        <Col>
-          Have an Account?
-          <Link to={register ? `/login?redirect=${register}` : "/login"}>
-            Log In
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+      <div className="Auth-form-container">
+        <form className="Auth-form">
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign Up</h3>
+            <div className="form-group mt-3">
+              <label>Name</label>
+              <input
+                type="name"
+                className="form-control mt-1"
+                placeholder="Enter your name"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="Enter email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Confirm password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <div className="d-grid gap-2 mt-3">
+              <button
+                type="submit"
+                className="btn btn-primary rounded"
+                onClick={submitHandler}
+              >
+                Submit
+              </button>
+            </div>
+            <div className="gotologin">
+              Have an Account?{" "}
+              <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+                <b>Login</b>
+              </Link>
+            </div>
+          </div>
+        </form>
+      </div>
+    </center>
   );
 };
 
