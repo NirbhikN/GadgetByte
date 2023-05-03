@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import SearchBox from "./SearchBox";
 import { logout } from "../actions/userActions";
@@ -11,6 +11,7 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const { cartItems } = useSelector((state) => state.cart);
   const logoutHandler = () => {
     dispatch(logout());
   };
@@ -30,6 +31,12 @@ const Header = () => {
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <i className="fas fa-cart-shopping"></i> Cart
+                  {/* //* Show number of items in cart */}
+                  {cartItems.length > 0 && (
+                    <Badge pill bg="light" style={{ marginLeft: "5px" }}>
+                      {cartItems.reduce((a, c) => parseInt(a + c.qty), 0)}
+                    </Badge>
+                  )}
                 </Nav.Link>
               </LinkContainer>
 
